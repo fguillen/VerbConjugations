@@ -1,0 +1,19 @@
+<form id="searchForm" class="dialog" action="/">
+  <fieldset>
+    <h1>Verb Search</h1>
+    <% if params[:q] %>
+      <a class="button toolButton goButton" href="#<%= params[:q].parameterize %>"><%= params[:q] %></a>
+    <% end %>
+  
+    <label>Verb:</label>
+    <input type="text" name="q" id="searchField"/>
+  </fieldset>
+</form>
+
+<script>
+  document.getElementById('searchForm').onsubmit = 
+    function(event){
+      event.preventDefault();
+      document.location = "/" + document.getElementById('searchField').value;
+    }
+</script>

@@ -1,0 +1,20 @@
+<h1 id="pageTitle"></h1>
+<a id="homeButton" class="button" href="#tenses"><%= params[:q] %></a>
+
+<a class="button" href="#searchForm">Search</a>
+
+<ul id="tenses" title="<%= params[:q] %>" selected="true">
+  <% @results.map { |e| e.tense }.each do |tense| %>
+    <li><a href="#<%= tense.parameterize %>"><%= tense %></a></li>
+  <% end %>
+</ul>
+
+<% @results.each do |result| %>
+<ul id="<%= result.tense.parameterize %>" title="<%= result.tense %>">
+  <% result.conjugation.each do |conjugation| %>
+    <li><%= conjugation %></li>
+  <% end %>
+</ul>
+<% end %>
+
+<%= render :partial => 'search_form' %>
