@@ -30,14 +30,20 @@ addEventListener("load", function(event)
     
 addEventListener("click", function(event)
 {
+    var link = event.target;
+  
+    // fguillen hack
+    if( link.className.indexOf('noLinkHack') != -1 )
+      return true;
+    
     event.preventDefault();
 
-    var link = event.target;
     while (link && link.localName.toLowerCase() != "a")
         link = link.parentNode;
 
     if (link && link.hash)
     {
+        // alert ( "showPage:" + link.hash.substr(1) );
         var page = document.getElementById(link.hash.substr(1));
         showPage(page);
     }
@@ -96,13 +102,24 @@ function showPage(page, backwards)
         if (homeButton)
             homeButton.style.display = ("#"+page.id) == homeButton.hash ? "none" : "inline";
 
+        // fguillen hack
+        var infoButton = document.getElementById("infoButton");
+        if (infoButton)
+            infoButton.style.display = ("#"+page.id) == homeButton.hash ? "inline" : "none";
+                
         if (fromPage)
             setTimeout(swipePage, 0, fromPage, page, backwards);
+        else
+          page.style.display = 'inline';
     }
 }
 
 function swipePage(fromPage, toPage, backwards)
 {        
+    // alert( "swipePage, fromPage: " + fromPage.id + ", toPage: " + toPage.id + ', backwards: ' + backwards )
+    if( fromPage.id == toPage.id )
+      return;
+    
     toPage.style.left = "100%";
     toPage.setAttribute("selected", "true");
     scrollTo(0, 1);

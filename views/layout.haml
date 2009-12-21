@@ -11,19 +11,20 @@
 
 %body
   %h1#pageTitle 
+  %a#infoButton.button.infoButton{:href => '#info'} info
   %a#homeButton.button{:href => '#tenses'}= params[:q]  if( !@results.nil? && !@results.empty? )
-  
-  %h1#footer
-  %a#infoButton.footer_button{:href => '#info'} Info
+  %a.button{:href => '#searchForm'} Search  
   
   = yield
   
-  #info.panel{:title => 'Info'}
-    %h2= "Verb Conjugations Info Page"
-    %p Verb Conjugations is a christmas present for a friend that wants to have the spanish verbs accessible from his iPhone.
-    %p
-      Author:
-      %a{:href => 'http://fernandoguillen.info'} Fernando Guillen
-    %p
-      Code:
-      %a{:href => 'http://github.com/fguillen/VerbConjugations'} Verb Conjugation's git code repository
+  = haml(:info, :layout => false)
+  
+  %script
+    :plain
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+
+      try {
+      var pageTracker = _gat._getTracker("UA-12151852-1");
+      pageTracker._trackPageview();
+      } catch(err) {}

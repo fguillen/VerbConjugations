@@ -1,15 +1,20 @@
 %form#searchForm.dialog{:action => '/'}
   %fieldset
     %h1 Verb Search
+    %a.button.toolButton.goButton.infoButton{:href => '#info'} info
     - if params[:q] && !@results.nil? && !@results.empty?
-      %a.button.toolButton.goButton{:href => params[:q].downcase.gsub(/[^a-z]/,'')}= params[:q]
+      %a.button.toolButton.goButton{:href => "#tenses"}= params[:q]
+    
+    
     %label Verb:
     %input#searchField{:type => 'text', :name => 'q'}
 
 %script
   :plain
-    document.getElementById('searchForm').onsubmit = 
-      function(event){
-        event.preventDefault();
+    (function () {
+      document.getElementById('searchForm').onsubmit = 
+        function(event){
+          event.preventDefault();
         document.location = "/" + document.getElementById('searchField').value;
-      }
+        }
+    })();
