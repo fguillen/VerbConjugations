@@ -1,4 +1,4 @@
-%a.button{:href => '#searchForm'}
+%a.button{:href => '#searchForm'} Search
 #searchResults.panel{:title => 'Not found', :selected => 'true'}
   %h2= "Verb '#{params[:q]}' not found"
 = haml(:search_form, :layout => false)
