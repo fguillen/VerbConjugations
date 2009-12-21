@@ -1,4 +1,2 @@
-/tmp
-/log
-config/config.yml
-db/schema.rb
+/tmp/*
+/log/*
