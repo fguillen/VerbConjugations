@@ -1,6 +1,6 @@
 require 'rubygems'
 require 'scrapi'
-require 'CGI'
+require 'cgi'
 require 'htmlentities'
 
 module Scrappers
