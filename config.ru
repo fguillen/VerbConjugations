@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'sinatra'
+require 'server.rb'
 
 root_dir = File.dirname(__FILE__)
 
