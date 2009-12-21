@@ -2,9 +2,11 @@ VerConjugations
 =========
 iPhone website to resolve any Spanish verb conjugation.
 
-Using
+Using and Greetings
 ---------
 ### Conjugation.org
+[http://conjugation.org](http://conjugation.org)
+
 For the verb conjugation database.. it isn't a very good database I have to improve this.
 
 ### iPhone Native Looking Skin
@@ -12,12 +14,21 @@ For the verb conjugation database.. it isn't a very good database I have to impr
 
 For the iPhone look and feel (awesome!)
 
+Tech Using and also Greetings
+----------
++ sinatra
++ scrapi
+
 WebSite
 ----------
 [http://vc.fernandoguillen.info](http://vc.fernandoguillen.info)
 
-Tech Using
+Code
 ----------
-+ sinatra
-+ scrapi
-+ mocha
+[http://github.com/fguillen/VerbConjugations](http://github.com/fguillen/VerbConjugations)
+
+License
+----------
+One of this that you can do whatever you want with the code.
+
+
