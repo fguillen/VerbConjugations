@@ -10,6 +10,20 @@
   %script{:type => 'text/javascript', :src => '/javascripts/iphonenav.js'}>
 
 %body
-  %h1#pageTitle  
+  %h1#pageTitle 
   %a#homeButton.button{:href => '#tenses'}= params[:q]  if( !@results.nil? && !@results.empty? )
+  
+  %h1#footer
+  %a#infoButton.footer_button{:href => '#info'} Info
+  
   = yield
+  
+  #info.panel{:title => 'Info'}
+    %h2= "Verb Conjugations Info Page"
+    %p Verb Conjugations is a christmas present for a friend that wants to have the spanish verbs accessible from his iPhone.
+    %p
+      Author:
+      %a{:href => 'http://fernandoguillen.info'} Fernando Guillen
+    %p
+      Code:
+      %a{:href => 'http://github.com/fguillen/VerbConjugations'} Verb Conjugation's git code repository

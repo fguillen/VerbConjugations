@@ -8,5 +8,5 @@
   %ul{:id => result[:tense].downcase.gsub(/[^a-z]/,''), :title => result[:tense]}
     - result[:conjugations].each do |conjugation|
       %li= conjugation
-
+  
 = haml(:search_form, :layout => false)

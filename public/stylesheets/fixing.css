@@ -8,3 +8,42 @@ body > ul > li {
   background: none;
 }
 
+body > h1#footer {
+    box-sizing: border-box;
+    position: absolute;
+    margin: 0;
+    padding: 10px;
+    width: 100%;
+    height: 20px;
+    bottom: 0px;
+    line-height: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: rgba(0, 0, 0, 0.6) 0px -1px 0;
+    text-overflow: ellipsis;
+    color: #FFFFFF;
+    background: url(/images/iPhoneToolbar.png) #6d84a2 repeat-x;
+    border-top: 1px solid #2d3642;
+    z-index:100;
+}
+
+.footer_button {
+    position: absolute;
+    bottom: 8px;
+    left: 6px;
+    -webkit-border-image: url(/images/iPhoneButton.png) 0 5 0 5;
+    -webkit-border-radius: 0;
+    border-width: 0 5px 0 5px;
+    padding: 0;
+    height: 28px;
+    line-height: 28px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-shadow: rgba(0, 0, 0, 0.6) 0px -1px 0;
+    text-decoration: none;
+    background: none;
+    z-index:101;
+}
+
