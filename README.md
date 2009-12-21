@@ -8,13 +8,13 @@ Using
 For the verb conjugation database.. it isn't a very good database I have to improve this.
 
 ### iPhone Native Looking Skin
-http://ajaxian.com/archives/iphone-native-looking-skin
+(http://ajaxian.com/archives/iphone-native-looking-skin)
 
 For the iPhone look and feel (awesome!)
 
 WebSite
 ----------
-http://vc.fernandoguillen.info
+(http://vc.fernandoguillen.info)
 
 Test
 ----------
