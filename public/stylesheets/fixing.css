@@ -1,8 +1,10 @@
 body > ul > li > a {
-    padding: 0px 0px 0px 0px;
+    padding: 0px 32px 0px 0px;
+    background: url(/images/iPhoneArrow.png) no-repeat right center;
 }
 
 body > ul > li {
-  padding: 8px 32px 8px 8px;
+  padding: 8px 0px 8px 8px;
+  background: none;
 }
 

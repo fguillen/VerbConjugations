@@ -1,80 +1,70 @@
 --- 
-- !ruby/object:VerbConjugation 
-  conjugation: 
+- :tense: Present Indicative
+  :conjugations: 
   - yo como
   - "t\xC3\xBA comes"
   - "\xC3\xA9l/usted come"
   - nosotros comemos
   - "vosotros com\xC3\xA9is"
   - ellos/ustedes comen
-  tense: Present Indicative
-- !ruby/object:VerbConjugation 
-  conjugation: 
+- :tense: Imperfect
+  :conjugations: 
   - "yo com\xC3\xADa"
   - "t\xC3\xBA com\xC3\xADas"
   - "\xC3\xA9l/usted com\xC3\xADa"
   - "nosotros com\xC3\xADamos"
   - "vosotros com\xC3\xADais"
   - "ellos/ustedes com\xC3\xADan"
-  tense: Imperfect
-- !ruby/object:VerbConjugation 
-  conjugation: 
+- :tense: Preterite
+  :conjugations: 
   - "yo com\xC3\xAD"
   - "t\xC3\xBA comiste"
   - "\xC3\xA9l/usted comi\xC3\xB3"
   - nosotros comimos
   - vosotros comisteis
   - ellos/ustedes comieron
-  tense: Preterite
-- !ruby/object:VerbConjugation 
-  conjugation: 
+- :tense: Future
+  :conjugations: 
   - "yo comer\xC3\xA9"
   - "t\xC3\xBA comer\xC3\xA1s"
   - "\xC3\xA9l/usted comer\xC3\xA1"
   - nosotros comeremos
   - "vosotros comer\xC3\xA9is"
   - "ellos/ustedes comer\xC3\xA1n"
-  tense: Future
-- !ruby/object:VerbConjugation 
-  conjugation: 
+- :tense: Conditional
+  :conjugations: 
   - "yo comer\xC3\xADa"
   - "t\xC3\xBA comer\xC3\xADas"
   - "\xC3\xA9l/usted comer\xC3\xADa"
   - "nosotros comer\xC3\xADamos"
   - "vosotros comer\xC3\xADais"
   - "ellos/ustedes comer\xC3\xADan"
-  tense: Conditional
-- !ruby/object:VerbConjugation 
-  conjugation: 
+- :tense: Imperative
+  :conjugations: 
   - "t\xC3\xBA come"
   - "\xC3\xA9l/usted coma"
   - nosotros comamos
   - vosotros comed
   - ellos/ustedes coman
-  tense: Imperative
-- !ruby/object:VerbConjugation 
-  conjugation: 
+- :tense: Present Subjunctive
+  :conjugations: 
   - yo coma
   - "t\xC3\xBA comas"
   - "\xC3\xA9l/usted coma"
   - nosotros comamos
   - "vosotros com\xC3\xA1is"
   - ellos/ustedes coman
-  tense: Present Subjunctive
-- !ruby/object:VerbConjugation 
-  conjugation: 
+- :tense: Imperfect Subjunctive
+  :conjugations: 
   - yo comiera
   - "t\xC3\xBA comieras"
   - "\xC3\xA9l/usted comiera"
   - "nosotros comi\xC3\xA9ramos"
   - vosotros comierais
   - ellos/ustedes comieran
-  tense: Imperfect Subjunctive
-- !ruby/object:VerbConjugation 
-  conjugation: 
+- :tense: Gerund
+  :conjugations: 
   - comiendo
-  tense: Gerund
-- !ruby/object:VerbConjugation 
-  conjugation: 
+- :tense: Past Participle
+  :conjugations: 
   - comido
-  tense: Past Participle

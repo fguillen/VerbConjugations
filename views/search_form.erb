@@ -1,8 +1,8 @@
 <form id="searchForm" class="dialog" action="/">
   <fieldset>
     <h1>Verb Search</h1>
-    <% if params[:q] %>
-      <a class="button toolButton goButton" href="#<%= params[:q].parameterize %>"><%= params[:q] %></a>
+    <% if params[:q] && (@result.nil? || !@result.empty?) %>
+      <a class="button toolButton goButton" href="#<%= params[:q].downcase.gsub(/[^a-z]/,'') %>"><%= params[:q] %></a>
     <% end %>
   
     <label>Verb:</label>
