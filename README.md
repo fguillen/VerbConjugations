@@ -16,8 +16,9 @@ For the iPhone look and feel (awesome!)
 
 Tech Using and also Greetings
 ----------
-+ sinatra
-+ scrapi
++ [sinatra](http://www.sinatrarb.com/)
++ [scrapi](http://github.com/assaf/scrapi)
++ [iPhone Native Looking Skin](http://ajaxian.com/archives/iphone-native-looking-skin)
 
 WebSite
 ----------
