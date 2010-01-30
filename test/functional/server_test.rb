@@ -29,4 +29,26 @@ class ServerTest < Test::Unit::TestCase
     assert_equal(404, last_response.status)
     assert_match /Verb 'wadus' not found/, last_response.body
   end
+  
+  def test_not_found_verb_with_json_format
+    Scrappers::ConjugationOrgScrapper.expects(:verb).with('wadus').returns([]).once
+    get '/wadus.json'
+    assert_equal(404, last_response.status)
+    assert_match /^ERROR/, last_response.body
+  end
+  
+  def test_with_params_with_json_format
+    Scrappers::ConjugationOrgScrapper.
+      expects(:verb).
+      with('comer').
+      returns(
+        [
+          {:tense => 'presente', :conjugations => ['yo como', 'tu comes', 'el come']},
+          {:tense => 'pasado', :conjugations => ['yo comí', 'tu comiste', 'el comió']}
+        ]).once
+        
+    get '/comer.json'
+    assert last_response.ok?
+    assert_equal( "presente:yo como,tu comes,el come|pasado:yo comí,tu comiste,el comió", last_response.body)
+  end
 end
