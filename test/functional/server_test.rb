@@ -16,39 +16,37 @@ class ServerTest < Test::Unit::TestCase
   end
 
   def test_with_params
-    Scrappers::ConjugationOrgScrapper.expects(:verb).with('comer').returns([{:tense => 'wadus', :conjugations => ['conjugation1']}]).once
+    verb_fixture = YAML::load( File.read( "#{File.dirname(__FILE__)}/../fixtures/results/conjugation_org_commer.yml" ) )
+    Scrappers::ConjugationOrgScrapper.expects(:verb).with('comer').returns(verb_fixture).once
     get '/comer'
     assert last_response.ok?
     assert_match /wadus/, last_response.body
-    assert_match /conjugation1/, last_response.body
+    assert_match /yo como/, last_response.body
   end
 
   def test_not_found_verb
-    Scrappers::ConjugationOrgScrapper.expects(:verb).with('wadus').returns([]).once
+    Scrappers::ConjugationOrgScrapper.expects(:verb).with('wadus').returns(nil).once
     get '/wadus'
     assert_equal(404, last_response.status)
     assert_match /Verb 'wadus' not found/, last_response.body
   end
   
   def test_not_found_verb_with_json_format
-    Scrappers::ConjugationOrgScrapper.expects(:verb).with('wadus').returns([]).once
+    Scrappers::ConjugationOrgScrapper.expects(:verb).with('wadus').returns(nil).once
     get '/wadus.json'
     assert_equal(404, last_response.status)
     assert_match /^ERROR/, last_response.body
   end
   
   def test_with_params_with_json_format
-    Scrappers::ConjugationOrgScrapper.
-      expects(:verb).
-      with('comer').
-      returns(
-        [
-          {:tense => 'presente', :conjugations => ['yo como', 'tu comes', 'el come']},
-          {:tense => 'pasado', :conjugations => ['yo comí', 'tu comiste', 'el comió']}
-        ]).once
-        
+    verb_fixture = YAML::load( File.read( "#{File.dirname(__FILE__)}/../fixtures/results/conjugation_org_commer.yml" ) )
+    Scrappers::ConjugationOrgScrapper.expects(:verb).with('comer').returns(verb_fixture).once
+    
     get '/comer.json'
     assert last_response.ok?
-    assert_equal( "presente:yo como,tu comes,el come|pasado:yo comí,tu comiste,el comió", last_response.body)
+    assert_equal( 
+      JSON.parse( File.read( "#{File.dirname(__FILE__)}/../fixtures/results/comer.json" ) ), 
+      JSON.parse( last_response.body )
+    )
   end
 end

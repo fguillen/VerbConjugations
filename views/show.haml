@@ -1,11 +1,11 @@
-%ul#tenses{:title => params[:q], :selected => 'true'}
-  - @results.map { |e| e[:tense] }.each do |tense|
+%ul#tenses{:title => @verb[:name], :selected => 'true'}
+  - @verb[:tenses].map { |e| e[:name] }.each do |tense|
     %li
       %a{:href => "##{tense.downcase.gsub(/[^a-z]/,'')}"}= tense
   
-- @results.each do |result|
-  %ul{:id => result[:tense].downcase.gsub(/[^a-z]/,''), :title => result[:tense]}
-    - result[:conjugations].each do |conjugation|
+- @verb[:tenses].each do |tense|
+  %ul{:id => tense[:name].downcase.gsub(/[^a-z]/,''), :title => tense[:name]}
+    - tense[:conjugations].each do |conjugation|
       %li= conjugation
   
 = haml(:search_form, :layout => false)

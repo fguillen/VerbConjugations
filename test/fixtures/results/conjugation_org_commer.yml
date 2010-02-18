@@ -1,5 +1,6 @@
 --- 
-- :tense: Present Indicative
+:tenses: 
+- :name: Present Indicative
   :conjugations: 
   - yo como
   - "t\xC3\xBA comes"
@@ -7,7 +8,7 @@
   - nosotros comemos
   - "vosotros com\xC3\xA9is"
   - ellos/ustedes comen
-- :tense: Imperfect
+- :name: Imperfect
   :conjugations: 
   - "yo com\xC3\xADa"
   - "t\xC3\xBA com\xC3\xADas"
@@ -15,7 +16,7 @@
   - "nosotros com\xC3\xADamos"
   - "vosotros com\xC3\xADais"
   - "ellos/ustedes com\xC3\xADan"
-- :tense: Preterite
+- :name: Preterite
   :conjugations: 
   - "yo com\xC3\xAD"
   - "t\xC3\xBA comiste"
@@ -23,7 +24,7 @@
   - nosotros comimos
   - vosotros comisteis
   - ellos/ustedes comieron
-- :tense: Future
+- :name: Future
   :conjugations: 
   - "yo comer\xC3\xA9"
   - "t\xC3\xBA comer\xC3\xA1s"
@@ -31,7 +32,7 @@
   - nosotros comeremos
   - "vosotros comer\xC3\xA9is"
   - "ellos/ustedes comer\xC3\xA1n"
-- :tense: Conditional
+- :name: Conditional
   :conjugations: 
   - "yo comer\xC3\xADa"
   - "t\xC3\xBA comer\xC3\xADas"
@@ -39,14 +40,14 @@
   - "nosotros comer\xC3\xADamos"
   - "vosotros comer\xC3\xADais"
   - "ellos/ustedes comer\xC3\xADan"
-- :tense: Imperative
+- :name: Imperative
   :conjugations: 
   - "t\xC3\xBA come"
   - "\xC3\xA9l/usted coma"
   - nosotros comamos
   - vosotros comed
   - ellos/ustedes coman
-- :tense: Present Subjunctive
+- :name: Present Subjunctive
   :conjugations: 
   - yo coma
   - "t\xC3\xBA comas"
@@ -54,7 +55,7 @@
   - nosotros comamos
   - "vosotros com\xC3\xA1is"
   - ellos/ustedes coman
-- :tense: Imperfect Subjunctive
+- :name: Imperfect Subjunctive
   :conjugations: 
   - yo comiera
   - "t\xC3\xBA comieras"
@@ -62,9 +63,10 @@
   - "nosotros comi\xC3\xA9ramos"
   - vosotros comierais
   - ellos/ustedes comieran
-- :tense: Gerund
+- :name: Gerund
   :conjugations: 
   - comiendo
-- :tense: Past Participle
+- :name: Past Participle
   :conjugations: 
   - comido
+:name: wadus

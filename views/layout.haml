@@ -12,7 +12,7 @@
 %body
   %h1#pageTitle 
   %a#infoButton.button.infoButton{:href => '#info'} info
-  %a#homeButton.button{:href => '#tenses'}= params[:q]  if( !@results.nil? && !@results.empty? )
+  %a#homeButton.button{:href => '#tenses'}= params[:q]  if( !@verb.nil? && !@verb[:tenses].empty? )
   %a.button{:href => '#searchForm'} Search  
   
   = yield

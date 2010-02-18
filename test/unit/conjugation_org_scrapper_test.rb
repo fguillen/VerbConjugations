@@ -8,8 +8,10 @@ class ConjugationOrgScrapper < Test::Unit::TestCase
     mocked_response = Marshal.load( File.read("#{File.dirname(__FILE__)}/../fixtures/responses/conjugation_org_comer.marshal") )
     Scraper::Reader.stubs(:read_page).returns( mocked_response )
     
+    # puts Scrappers::ConjugationOrgScrapper.verb( 'wadus' ).to_yaml
+    
     assert_equal( 
-      File.read( "#{File.dirname(__FILE__)}/../fixtures/results/conjugation_org_commer.yml"), 
+      File.read( "#{File.dirname(__FILE__)}/../fixtures/results/conjugation_org_commer.yml" ), 
       Scrappers::ConjugationOrgScrapper.verb( 'wadus' ).to_yaml
     )
   end
@@ -18,7 +20,7 @@ class ConjugationOrgScrapper < Test::Unit::TestCase
     mocked_response = Marshal.load( File.read("#{File.dirname(__FILE__)}/../fixtures/responses/conjugation_org_wadus.marshal") )
     Scraper::Reader.stubs(:read_page).returns( mocked_response )
     
-    assert_equal( 0, Scrappers::ConjugationOrgScrapper.verb( 'wadus' ).size )
+    assert_equal( nil, Scrappers::ConjugationOrgScrapper.verb( 'wadus' ) )
   end
 end
 
