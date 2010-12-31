@@ -1,7 +1,8 @@
 require 'rubygems'
-require 'scrapi'
+require 'nokogiri'
 require 'cgi'
 require 'htmlentities'
+require 'open-uri'
 
 module Scrappers
   class ConjugationOrgScrapper
@@ -15,44 +16,26 @@ module Scrappers
     #
     def self.verb( verb_name )      
       uri = URI.parse( "http://www.conjugation.org/cgi-bin/conj.php?word=#{CGI::escape( verb_name )}&B1=Conjugate&rb1=table&dpresent_indicative=yes&dimperfect=yes&dpreterite=yes&dfuture=yes&dconditional=yes&dimperative=yes&dp_sub=yes&di_sub=yes&dgerund=yes&dp_participle=yes&rb3=yes&rb2=ra" )
-      
-      scraper = Scraper.define do
-        array :verb_conjugations
-        array :errors
-        process "td", :verb_conjugations => :text
-        process "strong", :errors => :text
-        result :errors, :verb_conjugations
-      end
-      scraping_results = scraper.scrape(uri)
+      doc = Nokogiri::HTML( open_url( uri ) )
+      result = {}
+      result[:tenses] = []
             
-      if scraping_results.errors[0].strip != 'Error :'
-        result = Hash.new
-        result[:name] = verb_name
-        result[:tenses] = []
-        
-        scraping_results.verb_conjugations.each do |scraping_result|
-          tense = Hash.new
-          tense[:name] = scraping_result.split("\n")[0].gsub( /:$/, '' )
-          tense[:conjugations] = scraping_result.split("\n")[1..-1].map { |e| HTMLEntities.new.decode( e ) }
-        
-          result[:tenses] << tense
+      doc.css('td').each do |td|
+        tense = Hash.new
+        tense[:name] = td.children[0].text.gsub(/:$/, '')
+        tense[:conjugations] = []
+        td.children[2..-1].each do |conjugation|
+          tense[:conjugations] << HTMLEntities.new.decode( conjugation.text )  if conjugation.text != ''
         end
         
-        return result
+        result[:tenses] << tense
       end
-      
-      return nil
+        
+      return result
     end
     
-    #
-    # This method is just for build fixtures to build tests
-    #
-    def self.marshallice( verb_name )
-      uri = URI.parse( "http://www.conjugation.org/cgi-bin/conj.php?word=#{CGI::escape( verb_name )}&B1=Conjugate&rb1=table&dpresent_indicative=yes&dimperfect=yes&dpreterite=yes&dfuture=yes&dconditional=yes&dimperative=yes&dp_sub=yes&di_sub=yes&dgerund=yes&dp_participle=yes&rb3=yes&rb2=ra" )
-
-      File.open( "#{RAILS_ROOT}/test/fixtures/responses/conjugation_org_#{verb_name}.marshal" , 'w') do |f|
-        f.write Marshal.dump( Scraper::Reader.read_page(uri) )
-      end
+    def self.open_url( url )
+      open( url )
     end
   end
 end
