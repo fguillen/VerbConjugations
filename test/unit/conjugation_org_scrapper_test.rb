@@ -30,7 +30,7 @@ class ConjugationOrgScrapper < Test::Unit::TestCase
   
   def test_verb_without_results
     mocked_response = Marshal.load( File.read("#{File.dirname(__FILE__)}/../fixtures/responses/conjugation_org_wadus.marshal") )
-    Scraper::Reader.stubs(:read_page).returns( mocked_response )
+    Scrappers::Reader.stubs(:read_page).returns( mocked_response )
     
     assert_equal( nil, Scrappers::ConjugationOrgScrapper.verb( 'wadus' ) )
   end
