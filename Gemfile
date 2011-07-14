@@ -5,6 +5,7 @@ gem 'sinatra'
 gem 'nokogiri'
 gem 'htmlentities'
 gem 'haml'
+gem 'json'
 
 group :test do
   gem 'mocha'
