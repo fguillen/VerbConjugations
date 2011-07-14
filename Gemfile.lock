@@ -1,6 +1,7 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    htmlentities (4.3.0)
     mocha (0.9.12)
     nokogiri (1.5.0)
     rack (1.3.0)
@@ -14,6 +15,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  htmlentities
   mocha
   nokogiri
   rake (= 0.8.7)
